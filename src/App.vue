@@ -1,19 +1,10 @@
 <template>
   <v-app>
-    <v-toolbar app>
+    <v-toolbar app class="secondary" dark>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Security: </span>
-        <span class="font-weight-light">Contigency Planning</span>
+        <span class="font-weight-light">Systems Security</span>
       </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
+
     </v-toolbar>
 
     <v-content>
