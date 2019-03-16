@@ -30,8 +30,8 @@
                             >
                                 <template slot="items" slot-scope="props">
                                     <td class="text-xs-center">{{ props.item.emailAddress }}</td>
-                                    <td class="text-xs-center">{{ props.item.phoneNumber }}</td>
                                     <td class="text-xs-center">{{ props.item.transactionId }}</td>
+                                    <td class="text-xs-center">{{ props.item.phoneNumber }}</td>
                                     <td class="text-xs-center">{{ props.item.transactionTime }}</td>
                                 </template>
 
