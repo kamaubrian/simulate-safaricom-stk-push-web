@@ -1,10 +1,14 @@
+/* eslint-disable */
 import Vue from 'vue'
 import Vuex from 'vuex'
 import * as firebase from 'firebase'
-
+import createPersistedState from 'vuex-persistedstate'
 Vue.use(Vuex);
 export const store = new Vuex.Store({
     strict: true,
+    plugins:[
+      createPersistedState()
+    ],
     state: {
         payments: [{
             _id: '',
@@ -37,9 +41,36 @@ export const store = new Vuex.Store({
         }
     },
     actions: {
+        async fetchRecords({commit}) {
+            try{
+                let paymentCollection = []
+                commit('unSetError')
+                commit('setLoading',true)
+                let paymentsCollections = await firebase.firestore();
+                let querySnapshot = await paymentsCollections.collection('Payments').get();
+                querySnapshot.forEach((document=>{
+                    console.log(document.data())
+                    paymentCollection.push(document.data())
+                }));
+                commit('setLoading',false)
+                commit('setPayment',paymentCollection)
 
+            }catch (e) {
+                commit('setLoading',false)
+                console.error('Error Fetching Records',e.message);
+                commit('setError',e.message);
+            }
+        }
     },
     getters: {
-
+        payments(state){
+            return state.payments
+        },
+        loading(state){
+            return state.loading
+        },
+        error(state){
+            return state.error
+        }
     }
 });

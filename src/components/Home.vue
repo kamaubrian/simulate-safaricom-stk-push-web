@@ -26,7 +26,12 @@
 
 <script>
     export default {
-        data: () => ({})
+        data: () => ({
+
+        }),
+        async mounted() {
+           this.$store.dispatch('fetchRecords');
+        }
     }
 </script>
 
