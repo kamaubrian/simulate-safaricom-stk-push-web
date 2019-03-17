@@ -60,6 +60,18 @@ export const store = new Vuex.Store({
                 console.error('Error Fetching Records',e.message);
                 commit('setError',e.message);
             }
+        },
+        async onProcessSTKPush({commit}){
+            try{
+                commit('setLoading',true)
+                await sleep(1500);
+                commit('setLoading',false)
+
+            }catch (e) {
+                commit('setLoading',false);
+                console.error('Error Processing STK Push',e.message);
+                commit('setError',e.message)
+            }
         }
     },
     getters: {
@@ -74,3 +86,7 @@ export const store = new Vuex.Store({
         }
     }
 });
+function  sleep(ms) {
+    return new Promise(resolve => setTimeout(resolve, ms));
+
+}

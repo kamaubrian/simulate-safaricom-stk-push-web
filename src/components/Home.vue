@@ -39,7 +39,8 @@
         methods:{
             onNavigateToTransactions(){
                 this.$router.push('/payments')
-            }
+            },
+
         }
     }
 </script>
