@@ -14,10 +14,10 @@
         </v-layout>
         <v-layout row wrap text-xs-center>
             <v-flex xs12 sm6>
-                <v-btn outline class="primary" large>Simulate Transaction</v-btn>
+                <v-btn  outline class="primary" large>Simulate Transaction</v-btn>
             </v-flex>
             <v-flex xs12 sm6>
-                <v-btn outline class="primary" large>See Transactions</v-btn>
+                <v-btn @click.native="onNavigateToTransactions" outline class="primary" large>See Transactions</v-btn>
             </v-flex>
 
         </v-layout>
@@ -31,6 +31,11 @@
         }),
         async mounted() {
            this.$store.dispatch('fetchRecords');
+        },
+        methods:{
+            onNavigateToTransactions(){
+                this.$router.push('/payments')
+            }
         }
     }
 </script>

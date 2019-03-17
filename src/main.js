@@ -24,5 +24,7 @@ new Vue({
             storageBucket: "node-contigency-planning-demo.appspot.com",
             messagingSenderId: "148070500708"
         })
-    }
+        this.$router.push('/')
+
+    },
 }).$mount('#app')
