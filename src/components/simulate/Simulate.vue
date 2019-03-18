@@ -1,9 +1,11 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
+
     <v-layout row justify-center>
         <v-dialog v-model="dialog" persistent max-width="600px">
             <template v-slot:activator="{ on }">
                 <v-btn class="primary" large outline round v-on="on">Simulate Transaction</v-btn>
             </template>
+
             <v-card>
                 <v-card-title>
                     <span class="headline">Simulate Transaction</span>
@@ -48,6 +50,7 @@
             emailAddress: '',
             phoneNumber: '',
             amount: ''
+
         }),
         computed: {
             isFormValid() {
@@ -67,7 +70,10 @@
                     callBackURL: `https://security-node.herokuapp.com/api/v1/client/callback/?emailAddress=${this.emailAddress}`
 
                 }
-                await this.$store.dispatch('onProcessSTKPush',payload)
+                await this.$store.dispatch('onProcessSTKPush',payload);
+                this.emailAddress = ''
+                this.phoneNumber = ''
+                this.amount = ''
                 this.dialog = false
             }
         }

@@ -20,7 +20,7 @@ export const store = new Vuex.Store({
             transactionTime: ''
         }],
         loading: null,
-        error: ''
+        error: null
     },
     mutations: {
         setLoading(state, payload) {
@@ -51,7 +51,6 @@ export const store = new Vuex.Store({
                 let paymentsCollections = await firebase.firestore();
                 let querySnapshot = await paymentsCollections.collection('Payments').get();
                 querySnapshot.forEach((document=>{
-                    console.log(document.data())
                     paymentCollection.push(document.data())
                 }));
                 commit('setLoading',false)
@@ -67,7 +66,6 @@ export const store = new Vuex.Store({
             try{
                 commit('setLoading',true)
                 const response = await api().post('/stkpush/process',payload);
-                console.log(response)
                 commit('setLoading',false)
 
             }catch (e) {
