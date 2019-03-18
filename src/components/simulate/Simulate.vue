@@ -34,7 +34,7 @@
                     <v-spacer></v-spacer>
                     <v-btn color="red darken-1" round outline flat @click="dialog = false">Close</v-btn>
                     <v-btn color="blue darken-1" round outline flat @click="onProcessMockTransaction"
-                           :disabled="!isFormValid">
+                           :disabled="!isFormValid || loading">
                         Simulate
                     </v-btn>
                 </v-card-actions>
