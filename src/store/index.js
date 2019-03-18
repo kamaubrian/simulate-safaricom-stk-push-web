@@ -3,7 +3,9 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import * as firebase from 'firebase'
 import createPersistedState from 'vuex-persistedstate'
+import api from '../api/api'
 Vue.use(Vuex);
+
 export const store = new Vuex.Store({
     strict: true,
     plugins:[
@@ -61,10 +63,11 @@ export const store = new Vuex.Store({
                 commit('setError',e.message);
             }
         },
-        async onProcessSTKPush({commit}){
+        async onProcessSTKPush({commit},payload){
             try{
                 commit('setLoading',true)
-                await sleep(1500);
+                const response = await api().post('/stkpush/process',payload);
+                console.log(response)
                 commit('setLoading',false)
 
             }catch (e) {

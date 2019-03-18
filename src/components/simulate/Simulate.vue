@@ -59,7 +59,15 @@
         },
         methods: {
             async onProcessMockTransaction() {
-                await this.$store.dispatch('onProcessSTKPush')
+                let payload = {
+                    phoneNumber: this.phoneNumber,
+                    amount: this.amount,
+                    accountReference: 'test',
+                    description: 'test',
+                    callBackURL: `https://security-node.herokuapp.com/api/v1/client/callback/?emailAddress=${this.emailAddress}`
+
+                }
+                await this.$store.dispatch('onProcessSTKPush',payload)
                 this.dialog = false
             }
         }
