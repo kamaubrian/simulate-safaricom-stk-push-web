@@ -1,7 +1,14 @@
 # Consuming Node-js Safaricom-stk-api
 
+##Simulating A Transaction
+```
+Got to: https://node-contigency-planning-demo.firebaseapp.com/
 
-
+Click Simulate and Enter Correct Details,
+Wait for transaction 🤗🤗🤗🤗🤗
+🤗🤗
+```
+🤗
 ## Project setup
 ```
 npm install
