@@ -17,12 +17,12 @@ new Vue({
     store,
     created() {
         firebase.initializeApp({
-            apiKey: "AIzaSyDM0kdfwMyuAM6tMu7uFHEXWQrUG-Ot-OM",
-            authDomain: "node-contigency-planning-demo.firebaseapp.com",
-            databaseURL: "https://node-contigency-planning-demo.firebaseio.com",
-            projectId: "node-contigency-planning-demo",
-            storageBucket: "node-contigency-planning-demo.appspot.com",
-            messagingSenderId: "148070500708"
+            apiKey: "<Enter-Your-Api-Key-Here>",
+            authDomain: "<Enter-Auth-Domain>",
+            databaseURL: "<Enter Database URL>",
+            projectId: "<Ente Project ID>",
+            storageBucket: "<Enter-Storage-Bucket>",
+            messagingSenderId: "<Enter Messaging-id>"
         })
         this.$router.push('/')
 

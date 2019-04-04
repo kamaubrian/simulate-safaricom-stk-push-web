@@ -1,4 +1,6 @@
-# security-ui-demo
+# Consuming Node-js Safaricom-stk-api
+
+
 
 ## Project setup
 ```
